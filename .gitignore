@@ -1,0 +1,8 @@
+/vim/.DS_Store
+/vim/*.swp
+/vim/.netrwhist
+/vim/bundle_local
+/vim/plugged
+/vim/spell
+/vim/undodir
+/oh-my-zsh
