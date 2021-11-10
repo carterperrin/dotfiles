@@ -7,5 +7,9 @@
 	ci = commit
 	st = status
 	hist = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+[alias "push"]
+  please = push --force-with-lease
+[rebase]
+  autosquash = true
 [init]
 	defaultBranch = main
