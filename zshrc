@@ -104,3 +104,25 @@ alias k="kubectl"
 # uninstall by removing these lines
 [[ -f ~/.config/tabtab/__tabtab.zsh ]] && . ~/.config/tabtab/__tabtab.zsh || true
 [ -f "${GHCUP_INSTALL_BASE_PREFIX:=$HOME}/.ghcup/env" ] && source "${GHCUP_INSTALL_BASE_PREFIX:=$HOME}/.ghcup/env"
+
+# ==== Tesseract Python Setup ====
+
+# virtualenvwrapper
+export PATH="$HOME/.local/bin:$PATH"
+export WORKON_HOME=~/.envs
+
+# pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+  eval "$(pyenv virtualenv-init -)";
+fi
+
+# source activate shortcut (can go in ~/.bash_aliases if you're set up that way)
+sa() {
+    source $WORKON_HOME/$1/bin/activate
+}
+alias set_test_env="set -a && . ./variables-test.env && set +a"
+alias source_pyenv="source ~/.env_exporter"
+
