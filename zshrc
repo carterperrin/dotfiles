@@ -99,6 +99,8 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias k="kubectl"
+alias t="terraform"
+alias tw="terraform workspace"
 
 # tabtab source for packages
 # uninstall by removing these lines
