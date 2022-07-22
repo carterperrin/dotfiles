@@ -32,6 +32,14 @@ if ! type 'git' &> /dev/null; then
 	brew install git
 fi
 
+# Check for tmux
+if ! type 'tmux' &> /dev/null; then
+	e_header "Updating Homebrew..."
+	brew update
+	e_header "Installing tmux..."
+	brew install tmux
+fi
+
 # Initialize the git repository if it's missing
 # if ! is_git_repo; then
 # 	e_header "Initializing git repository..."
