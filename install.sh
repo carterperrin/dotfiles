@@ -30,6 +30,7 @@ if ! type 'git' &> /dev/null; then
 	brew update
 	e_header "Installing Git..."
 	brew install git
+	brew install gh
 fi
 
 # Check for tmux
