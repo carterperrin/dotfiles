@@ -6,7 +6,7 @@
 ########## Variables
 
 DIR=$(cd "$(dirname "$0")"; pwd)
-FILES="vimrc vim vimrc.bundles zshrc tmux.conf gitconfig" # list of files/folders to symlink in homedir
+FILES="vimrc vim vimrc.bundles zshrc tmux.conf gitconfig warp/keybindings.yaml" # list of files/folders to symlink in homedir
 ZSH="${DIR}/oh-my-zsh"
 
 # Before relying on Homebrew, check that packages can be compiled
