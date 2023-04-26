@@ -111,7 +111,3 @@ alias tailscale="/Applications/Tailscale.app/Contents/MacOS/Tailscale"
 [ -f "${GHCUP_INSTALL_BASE_PREFIX:=$HOME}/.ghcup/env" ] && source "${GHCUP_INSTALL_BASE_PREFIX:=$HOME}/.ghcup/env"
 export PATH="/opt/homebrew/opt/node@16/bin:$PATH"
 
-# pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
