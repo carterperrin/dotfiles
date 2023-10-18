@@ -101,6 +101,7 @@ alias t="terraform"
 alias tw="terraform workspace"
 alias tailscale="/Applications/Tailscale.app/Contents/MacOS/Tailscale"
 alias login-dev="export AWS_PROFILE=dev && aws sso login --profile dev"
+alias login-prod="export AWS_PROFILE=prod && aws sso login --profile prod"
 
 # tabtab source for packages
 # uninstall by removing these lines
