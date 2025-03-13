@@ -6,7 +6,7 @@
 ########## Variables
 
 DIR=$(cd "$(dirname "$0")"; pwd)
-FILES="vimrc vim vimrc.bundles zshrc tmux.conf gitconfig warp/keybindings.yaml" # list of files/folders to symlink in homedir
+FILES="vimrc vim vimrc.bundles zshrc tmux.conf gitconfig" # list of files/folders to symlink in homedir
 ZSH="${DIR}/oh-my-zsh"
 
 # Before relying on Homebrew, check that packages can be compiled
@@ -41,16 +41,11 @@ if ! type 'tmux' &> /dev/null; then
 	brew install tmux
 fi
 
-# Initialize the git repository if it's missing
-# if ! is_git_repo; then
-# 	e_header "Initializing git repository..."
-# 	git init
-# 	git remote add origin https://github.com/${DOTFILES_REPO}
-# 	git checkout -b main
-# 	git fetch origin main
-# 	# Reset the index and working tree to the fetched HEAD
-# 	git reset --hard FETCH_HEAD
-# fi
+# Check for nvm
+if ! type 'nvm' &> /dev/null; then
+    e_header "Installing nvm..."
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.2/install.sh | bash
+fi
 
 # Check for zsh
 if [[ ! -d ${ZSH} ]]; then
