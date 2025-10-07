@@ -100,6 +100,7 @@ alias k="kubectl"
 alias t="terraform"
 alias tw="terraform workspace"
 alias tailscale="/Applications/Tailscale.app/Contents/MacOS/Tailscale"
+alias login-aws="aws sso login"
 
 # tabtab source for packages
 # uninstall by removing these lines
