@@ -1,0 +1,42 @@
+format = """
+$directory\
+$git_branch\
+$git_status\
+$nodejs\
+$terraform\
+${custom.stage}\
+$line_break\
+$character"""
+
+[directory]
+truncation_length = 3
+truncate_to_repo = true
+
+[git_branch]
+format = "[$branch]($style) "
+style = "bold purple"
+
+[git_status]
+format = '([$all_status$ahead_behind]($style) )'
+style = "bold red"
+
+[nodejs]
+format = "[$symbol($version)]($style) "
+symbol = "node "
+detect_files = ["package.json"]
+style = "bold green"
+
+[terraform]
+format = "[$symbol$workspace]($style) "
+symbol = "tf "
+style = "bold 105"
+
+[custom.stage]
+command = """stage=$(readlink .env 2>/dev/null | sed 's/^\\.env\\.//'); if [ "$stage" = "prod" ] || [ "$stage" = "vnv" ]; then printf '\\e[1;31m%s\\e[0m' "$stage"; else printf '\\e[1;33m%s\\e[0m' "$stage"; fi"""
+when = "test -L .env"
+format = "[$output]($style) "
+style = ""
+
+[character]
+success_symbol = "[>](bold green)"
+error_symbol = "[>](bold red)"
