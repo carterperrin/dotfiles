@@ -9,8 +9,7 @@ return {
   keys = {
     { "<leader>e", "<cmd>Neotree toggle<CR>", desc = "Toggle file explorer" },
     { "<leader>nf", "<cmd>Neotree reveal<CR>", desc = "Reveal current file in explorer" },
-    { "\\nt", "<cmd>Neotree toggle<CR>", desc = "Toggle file explorer (backslash)" },
-    { "\\nf", "<cmd>Neotree reveal<CR>", desc = "Reveal current file (backslash)" },
+    { "<leader>nt", "<cmd>Neotree toggle<CR>", desc = "Toggle file explorer" },
   },
   opts = {
     close_if_last_window = true,

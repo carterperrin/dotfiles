@@ -22,6 +22,47 @@ alias login-aws="aws sso login"
 alias vim="nvim"
 alias vi="nvim"
 
+# Git worktree helper: gw <name> <branch>
+# Creates a sibling worktree directory with a new branch
+gw() {
+  if [ $# -ne 2 ]; then
+    echo "Usage: gw <worktree-name> <branch-name>"
+    return 1
+  fi
+  local root
+  root=$(git rev-parse --show-toplevel 2>/dev/null) || { echo "Not in a git repo"; return 1; }
+  git worktree add "$(dirname "$root")/$1" -b "$2"
+}
+
+# Git worktree delete: gwd <name>
+# Removes a sibling worktree directory
+gwd() {
+  if [ $# -ne 1 ]; then
+    echo "Usage: gwd <worktree-name>"
+    return 1
+  fi
+  local root
+  root=$(git rev-parse --show-toplevel 2>/dev/null) || { echo "Not in a git repo"; return 1; }
+  git worktree remove "$(dirname "$root")/$1"
+}
+
+# Git worktree list: gwl
+gwl() {
+  git worktree list
+}
+
+# Git worktree move/rename: gwm <old-name> <new-name>
+gwm() {
+  if [ $# -ne 2 ]; then
+    echo "Usage: gwm <old-name> <new-name>"
+    return 1
+  fi
+  local root
+  root=$(git rev-parse --show-toplevel 2>/dev/null) || { echo "Not in a git repo"; return 1; }
+  local parent="$(dirname "$root")"
+  git worktree move "$parent/$1" "$parent/$2"
+}
+
 # fzf keybindings (Ctrl-R history, Ctrl-T file picker)
 source <(fzf --zsh)
 

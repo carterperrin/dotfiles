@@ -15,9 +15,6 @@ return {
     { "<leader>fs", "<cmd>Telescope lsp_document_symbols<CR>", desc = "Document symbols" },
     { "<leader>fw", "<cmd>Telescope grep_string<CR>", desc = "Grep word under cursor" },
     { "<C-p>", "<cmd>Telescope find_files<CR>", desc = "Find files" },
-    { "\\ff", "<cmd>Telescope find_files<CR>", desc = "Find files (backslash)" },
-    { "\\fg", "<cmd>Telescope live_grep<CR>", desc = "Live grep (backslash)" },
-    { "\\fb", "<cmd>Telescope buffers<CR>", desc = "Buffers (backslash)" },
   },
   config = function()
     local telescope = require("telescope")
