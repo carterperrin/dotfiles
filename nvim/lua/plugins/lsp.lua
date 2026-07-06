@@ -52,6 +52,7 @@ return {
           map("[d", vim.diagnostic.goto_prev, "Previous diagnostic")
           map("]d", vim.diagnostic.goto_next, "Next diagnostic")
           map("<leader>dl", vim.diagnostic.setloclist, "Diagnostics list")
+          map("gl", vim.diagnostic.open_float, "Line diagnostics")
         end,
       })
 
@@ -62,6 +63,25 @@ return {
 
       vim.lsp.config("eslint", {
         capabilities = capabilities,
+        settings = {
+          codeActionOnSave = {
+            enable = true,
+            mode = "all",
+          },
+        },
+      })
+
+      -- Auto-fix ESLint issues on save
+      vim.api.nvim_create_autocmd("BufWritePre", {
+        callback = function(args)
+          local clients = vim.lsp.get_clients({ bufnr = args.buf, name = "eslint" })
+          if #clients > 0 then
+            vim.lsp.buf.code_action({
+              context = { only = { "source.fixAll.eslint" }, diagnostics = {} },
+              apply = true,
+            })
+          end
+        end,
       })
 
       vim.lsp.config("terraformls", {
