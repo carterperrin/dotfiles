@@ -14,7 +14,6 @@ export EDITOR='nvim'
 export VISUAL='nvim'
 
 # Aliases
-alias k="kubectl"
 alias t="terraform"
 alias tw="terraform workspace"
 alias tailscale="/Applications/Tailscale.app/Contents/MacOS/Tailscale"
