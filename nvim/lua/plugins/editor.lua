@@ -7,18 +7,6 @@ return {
     opts = {},
   },
 
-  -- Comment toggling (gcc, gc in visual)
-  {
-    "numToStr/Comment.nvim",
-    keys = {
-      { "gcc", mode = "n", desc = "Toggle comment" },
-      { "gc", mode = "v", desc = "Toggle comment" },
-      { "\\cc", "gcc", remap = true, mode = "n", desc = "Toggle comment (backslash)" },
-      { "\\cc", "gc", remap = true, mode = "v", desc = "Toggle comment (backslash)" },
-    },
-    opts = {},
-  },
-
   -- Auto pairs
   {
     "windwp/nvim-autopairs",

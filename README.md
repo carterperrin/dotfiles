@@ -21,6 +21,7 @@ Worktrees are created as siblings of the current repo directory.
 | `gwd <name>` | Remove the sibling worktree `../<name>` |
 | `gwl` | List all worktrees |
 | `gwm <old> <new>` | Rename a sibling worktree |
+| `gwr <new-name> <new-branch>` | Rename the current worktree and start a new branch on it (reuse deps/env) |
 
 ## Git aliases (`gitconfig`)
 

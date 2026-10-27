@@ -62,6 +62,21 @@ gwm() {
   git worktree move "$parent/$1" "$parent/$2"
 }
 
+# Rename current worktree and start a new branch: gwr <new-name> <new-branch>
+# Run from inside the worktree you want to reuse
+gwr() {
+  if [ $# -ne 2 ]; then
+    echo "Usage: gwr <new-name> <new-branch>"
+    return 1
+  fi
+  local root
+  root=$(git rev-parse --show-toplevel 2>/dev/null) || { echo "Not in a git repo"; return 1; }
+  local new_path="$(dirname "$root")/$1"
+  git worktree move "$root" "$new_path" || return 1
+  cd "$new_path" || return 1
+  git checkout -b "$2"
+}
+
 # fzf keybindings (Ctrl-R history, Ctrl-T file picker)
 source <(fzf --zsh)
 

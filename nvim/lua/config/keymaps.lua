@@ -3,6 +3,10 @@ local map = vim.keymap.set
 -- Clear search highlight
 map("n", "<leader>nh", "<cmd>nohls<CR>", { desc = "Clear search highlight" })
 
+-- Comment toggling (uses Neovim 0.10+ built-in gcc/gc)
+map("n", "\\cc", "gcc", { remap = true, desc = "Toggle comment" })
+map("x", "\\cc", "gc",  { remap = true, desc = "Toggle comment" })
+
 -- Better window navigation
 map("n", "<C-h>", "<C-w>h")
 map("n", "<C-j>", "<C-w>j")
