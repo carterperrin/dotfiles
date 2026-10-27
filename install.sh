@@ -100,6 +100,10 @@ mkdir -p "$HOME/.config"
 ln -sfn "$DIR/nvim" "$HOME/.config/nvim"
 ln -sf "$DIR/starship.toml" "$HOME/.config/starship.toml"
 
+# Claude Code global instructions
+mkdir -p "$HOME/.claude"
+ln -sf "$DIR/claude/CLAUDE.md" "$HOME/.claude/CLAUDE.md"
+
 # Clean up old vim symlinks if they exist
 [ -L "$HOME/.vimrc" ] && rm "$HOME/.vimrc"
 [ -L "$HOME/.vim" ] && rm "$HOME/.vim"
